@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,600,600i|IBM+Plex+Serif:400,700');
+
+$headings-font-family: 'IBM Plex Sans', sans-serif; 
+$font-family-base: 'IBM Plex Serif', serif; 
+
+$color-1: #0A2447; 
+$color-2: #068587;
+$color-3: #4FB99F;
+$color-4: #F2B134;
+$color-5: #AB6236;
+
+$border-radius: 10px;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.border-radius{
+  border-radius:  $border-radius;
+} 
+
+.position-relative {
+  position: relative;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.w-100 {
+  width: 100% !important;
+} 
+.h-100 {
+  height: 100% !important;
+}
+.bg-1 {
+  background-color: $color-1;
+  color: #FFF;
+}
+
+.bg-2 {
+  background-color: $color-2;
+  color: #FFF;
+}
+
+.bg-3 {
+  background-color: $color-3;
+  color: rgba(#FFF, 1);
+  p {
+    color: rgba(#FFF, .75);
+  }
+}
+
+.bg-4 {
+  background-color: $color-4;
+  color: rgba(#FFF, 1);
+  p {
+    color: rgba(#FFF, .75);
+  }
+}
+
+
+.bg-5 {
+  background-color: $color-5;
+  color: rgba(#FFF, 1);
+  p {
+    color: rgba(#FFF, .75);
+  }
+}
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0 0 10px 0;
+  font-family: $headings-font-family;
+  line-height: 1;
+}
+
+h1, .h1 {
+  font-weight: 600;
+  font-size: 3em;
+  color: $color-5;
+  
+}
+
+h2, .h2 {
+  color: $color-1;
+  letter-spacing: 1px;
+  font-size: 1.7em;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+p {
+  font-family:$headings-font-family;
+  font-size: 1em;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+.debug {
+  border:  3px solid red;
+}
+
+.img-container {
+  position: absolute; 
+  right: 0;
+  height: 100%;
+  top: 0;
+  width: 45%;
+  &.animate:after {
+    content:'';
+    background: $color-4;
+    position: absolute;
+    top: 0; bottom:0;
+    left: 0; width: 0;
+    z-index: 3;
+    animation: animate 1s linear forwards;
+  }
+  &.animate .img {
+    opacity:1.5;
+  }
+}
+
+.img {
+  display:block;
+  height: 100%;
+  color: $color-1;
+  opacity: 0;
+  transition: opacity 0s linear 500ms;
+  &:before {
+    display: none;
+  }
+}
+
+@keyframes animate {
+  0% {
+    width: 0;
+    transform: translateX(0);
+  }
+  
+  50% {
+    width: 100%;
+    transform: translateX(0);
+  }
+  90% {
+    width: 100%;
+    transform: translateX(80%);
+  }
+  95% {
+    width: 100%;
+    transform: translateX(85%);
+  }
+  100% {
+    width: 100%;
+    transform: translateX(100%);
+  }
+
+}
+
+[data-animate="slide-up"]{
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 200ms ease-out, opacity 200ms ease-in-out;
+}
+.slide-up {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .img-container {
+    width: 100%;
+  
+    position: relative !important;
+    .img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
